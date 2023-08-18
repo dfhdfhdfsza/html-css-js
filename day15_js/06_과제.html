@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>1~45까지의 중복되지 않는 숫자 6개가 랜덤으로 추출후 순서대로 출력하기 단,Set 객체를 사용할 것</h1>
+    <button onclick="createRanNum()">랜덤번호 6개 출력하기</button><br>
+    <h3 id="prmn"></h3>
+    <button onclick="printCA()">당첨번호 7개(마지막은 보너스~)출력하기</button><br>
+    <h3 id="pan"></h3>
+    <button onclick="checkResult()">결과확인</button><br>
+
+    <script>
+        const mySet=new Set();
+        const CA=new Set();
+        const mySet2=[];
+        const CA2=[];
+        function createRanNum() 
+        {
+            mySet.clear();
+            while(mySet.size!=6)
+            {
+                let random=Math.floor(Math.random()*45)+1;
+                mySet.add(random);
+            }
+            prmn.innerHTML=``;
+            mySet.forEach(function(e){
+                prmn.innerHTML+=`${e} `;
+                mySet2.push(e);
+            })
+        }
+        function printCA()
+        {
+            CA.clear();
+            while(CA.size!=7)
+            {
+                let random=Math.floor(Math.random()*45)+1;
+                CA.add(random);
+            }
+            pan.innerHTML=``;
+            CA.forEach(function(e){
+                pan.innerHTML+=`${e} `;
+                CA2.push(e);
+            })
+        }
+        
+        function checkResult()
+        {
+
+        }
+    </script>
+</body>
+</html>

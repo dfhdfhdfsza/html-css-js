@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red
+        {
+            color: red;
+        }
+        .green
+        {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="ip">
+    <button onclick="check()">전송</button>
+    <h3 id="result" class=""></h3>
+    <script>
+        function check()
+        {
+            let file=document.getElementById('ip').value;
+            if(file.match(/(png|jpg|jpeg|gif)/ig))
+            {
+                result.style.setProperty("color","green");
+                result.innerHTML=`정상파일입니다.`;
+
+            }
+            else
+            { 
+                result.style.setProperty("color","red");
+                result.innerHTML=`이미지 파일만 가능합니다.`;
+            }
+        }
+    </script>
+</body>
+</html>

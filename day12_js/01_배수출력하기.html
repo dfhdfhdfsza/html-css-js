@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>배수 출력하기(1~100 중 입력한 숫자의 배수를 출력)</h1>
+    
+        숫자: <input type="text" id="num">
+        <button type="button" onclick="numprint()">배수출력</button>
+    
+
+    <h3 id="h3">
+        배수값 출력 <br>
+    </h3>
+    <script>
+        function numprint()
+        {
+            let num=document.getElementById('num').value;
+            let i=1;
+            h3.innerHTML+=`<${num}의 배수><br>`;
+            while(num*i<=100)
+            {
+                h3.innerHTML+=`${num*i}<br> `;
+                i++;
+            }
+        }
+    </script>
+</body>
+</html>

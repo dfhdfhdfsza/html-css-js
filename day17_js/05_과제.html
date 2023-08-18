@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+And+White+Picture&display=swap" rel="stylesheet">
+
+    <style>
+        .font {
+            font-family: 'Black And White Picture';
+        }
+
+        h1 {
+            font-size: 100px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .hname {
+            font-size: 60px;
+        }
+
+        div {
+            float: left;
+            margin-top: 50px;
+            margin-left: 150px;
+        }
+
+        body {
+            background-color: rgba(40, 100, 200, 0.5);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="hd">
+    </header>
+    <section id="sec">
+    </section>
+
+
+
+
+    <script>
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then(rsp => rsp.json())
+            .then(json => { hd.innerHTML += `<h1 class='font'>${json['squadName']}<h1>` });
+
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then(rsp => rsp.json())
+            .then(json => { hd.innerHTML += `<br><h3 class='subti'>HomeTown:${json['homeTown']}// Formd:${json['formed']}</h3>` });
+
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then(rsp => rsp.json())
+            .then(json => printHero(json, 0))
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then(rsp => rsp.json())
+            .then(json => printHero(json, 1))
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then(rsp => rsp.json())
+            .then(json => printHero(json, 2))
+
+
+
+        function printHero(obj, idx) 
+        {
+            let str = `<div>`
+            str += `<h3 class='hname font'>${obj['members'][idx]['name']}</h3>`;
+            str += `<br>Secret identity : ${obj['members'][idx]['secretIdentity']}`;
+            str += `<br>Age : ${obj['members'][idx]['age']}`
+            str += `<br>Superpowers:<br>`
+
+            for (const c of obj['members'][idx]['powers'])
+                str += `<li>${c}</li>`
+
+            str += `</div>`
+
+            sec.innerHTML += `${str}`
+        }
+
+
+    </script>
+
+</body>
+</html>
+
+﻿

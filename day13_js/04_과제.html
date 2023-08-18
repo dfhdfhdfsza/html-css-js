@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Up Down Game</h1>
+    <ul>
+        <li>
+            1.랜덤 숫자 만들기 버튼을 클릭하면 컴퓨터가 랜덤으로 1~99(포함)의숫자 1개를 생성한다.
+        </li>
+        <li>
+            2.숫자가 생성되면 컴퓨터가 랜덤으로 숫자를 생성하였습니다라는 안내 문구가 출력된다.
+        </li>
+
+        <li>
+            3.input란에 1~99(포함)숫자를 입력하고 맞추기라는 버튼을 클릭하면
+        </li>
+        <li>
+            4.컴퓨터의 숫자보다 높은 숫자이면 down을 출력,낮은 숫자면 up을 출력
+        </li>
+        <li>
+            컴퓨터의 숫자를 맞추면 정답입니다~컴퓨터 숫자는?이었습니다 라는 메시지 출력
+        </li>
+    </ul>
+    <button type="button" onclick="updown()">랜덤 숫자 생성 버튼</button>
+    <button type="button" onclick="window.location.reload();">다시 시도</button><br>
+    <input type="text" id="inputNum">
+    <button type="button" onclick="check()">정답!!</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let trycnt = 0;
+        let answerNum = 0;
+        function updown(inputNum) 
+        {
+            answerNum = Math.floor(Math.random() * 99) + 1;
+            result.innerHTML = `랜덤 숫자 생성!`
+        }
+        function check() {
+
+            if (trycnt < 5) 
+            {
+                let inputNum = document.getElementById('inputNum').value;
+                trycnt++;
+
+                if (inputNum < answerNum)
+                    result.innerHTML = `UP!! 시도한횟수${trycnt}`;
+                else if (inputNum > answerNum)
+                    result.innerHTML = `DOWN!! 시도한횟수${trycnt}`;
+                else if (inputNum == answerNum)
+                    result.innerHTML = `정답입니다~ 컴퓨터 숫자는 ${answerNum}이었습니다.<br>시도한 횟수:${trycnt}`;
+                if (trycnt == 5)
+                    result.innerHTML = `GAME OVER 컴퓨터 숫자는 ${answerNum}이었습니다`
+            }
+            else
+                result.innerHTML = `다시 시도를 눌러 초기화를 해주세요.`
+        }
+    </script>
+</body>
+</html>
+
+﻿

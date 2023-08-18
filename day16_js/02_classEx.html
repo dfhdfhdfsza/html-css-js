@@ -1,0 +1,102 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+                //객체로 계좌현황 체크
+
+            let myAccount={
+                name:'yu',
+                balance:0,
+                //입금
+                deposit:function(money)
+                {
+                    this.balance+=money;
+                },
+                //출금
+                withdraw:function(money)
+                {
+                    this.balance-=money;
+                },
+                //이체
+                transfer:function(money,other)
+                {
+                    this.balance-=money;
+                    other.balance+=money;
+                }
+            }
+            let yourAccount={
+                name:'kim',
+                balance:0,
+                //입금
+                deposit:function(money)
+                {
+                    this.balance+=money;
+                },
+                //출금
+                withdraw:function(money)
+                {
+                    this.balance-=money;
+                },
+                //이체
+                transfer:function(money,other)
+                {
+                    this.balance-=money;
+                    other.balance+=money;
+                }
+            }
+            //내 계좌에 입금 상황
+            console.log(myAccount.name,":",myAccount.balance);
+            myAccount.deposit(5000);
+            console.log(myAccount.name,":",myAccount.balance);
+
+            //출금
+            myAccount.withdraw(3000);
+            console.log(myAccount.name,":",myAccount.balance);
+
+            //이체
+            myAccount.transfer(1000,yourAccount);
+            console.log(myAccount.name,":",myAccount.balance);
+            console.log(yourAccount.name,":",yourAccount.balance);
+
+            //class 생성
+
+            class Account{
+                constructor(name)
+                {
+                    this.name=name;
+                    this.balance=0;
+                }
+                //입금
+                deposit(money)
+                {
+                    this.balance+=money;
+                }
+                //출금
+                withdraw(money)
+                {
+                    this.balance-=money;
+                }
+                //이체
+                transfer(money,other)
+                {
+                    this.balance-=money;
+                    other.balance+=money;
+                }
+            }
+            const myAccount2=new Account('유호재');
+            const yourAccount2=new Account('kim');
+            myAccount2.deposit(5000);
+            console.log(myAccount2);
+            myAccount2.withdraw(2000);
+            console.log(myAccount2);
+            myAccount2.transfer(2000,yourAccount2);
+            console.log(myAccount2);
+            console.log(yourAccount2);
+        </script>
+    </body>
+    </html>

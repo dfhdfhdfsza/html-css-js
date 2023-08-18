@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-indexEx</title>
+    <style>
+        .main
+        {
+            width: 300px;
+           
+            position: relative;
+            border: 1px solid black;
+            margin-left: 50%;
+            transform: translate(-50%);
+        }
+        .middle1,.middle3
+        {
+            width: 200px;
+            height: 50px;
+            border: 2px solid black;
+            font-size: 25px;
+            font-weight: 700;
+            text-align: center;
+            position: relative;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            line-height: 50px;
+            
+        }
+        .middle2
+        {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 50%;
+            transform: translate(-50%);
+            position: relative;
+            
+        }
+        .box
+        {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 5px 5px 10px  white;
+        }
+        .bottom1
+        {
+            
+            top: 30px;
+            left: 30px;
+        
+            background-color: blue;
+            z-index: 30;
+        }
+        .bottom2
+        {
+            top: 60px;
+            left: 60px;
+            background-color: green;
+            z-index: 20;
+        }
+        .bottom3
+        {
+            top:90px;
+            left: 90px;
+            background-color: brown;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="middle1">텍스트</div>
+        <div class="middle2">
+            <div class="box bottom1"></div>
+            <div class="box bottom2"></div>
+            <div class="box bottom3"></div>
+        </div>
+        <div class="middle3">텍스트</div>
+    </div>
+    
+</body>
+</html>

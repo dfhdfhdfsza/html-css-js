@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <h1>여행 준비물 점검 목록</h1>
+    <input type="text" id="input" autofocus="true">
+    <button type="button" id="btn">추가</button>
+    <div id="result"></div>
+    <script>
+        const arr = [];
+        idx = 0;
+
+        document.getElementById('btn').addEventListener('click', () => {
+            arr.push(document.getElementById('input').value)
+            document.getElementById('input').focus();
+            printitem();
+            idx++;
+        })
+
+        function del(didx) 
+        {
+            arr.splice(didx, 1);
+            printitem();
+        }
+
+        function printitem() 
+        {
+            result.innerHTML = '';
+            for (let i = 0; i < arr.length; i++)
+                result.innerHTML += `<div id="div${i}">${arr[i]}<span onclick="del(${i})">x</span></div>`
+        }
+    </script>
+</body>
+</html>
+
+﻿

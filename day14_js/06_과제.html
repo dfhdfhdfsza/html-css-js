@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        구구단 영역 (2*1=2~9*9=81)내에서 랜덤으로 문제를 내면 정답을 맞추는 로직
+    </h1>
+    <li>
+        총 문제는 10문제 출제
+    </li>
+    <li>
+        문제를 풀때 정답,오답의 결과를 나타냄
+    </li>
+    <li>
+        총 10개의 문제중 정답률을 출력
+    </li>
+    <button onclick="printsolution()">문제출제</button>
+    <h3 id="result"></h3>
+    <button onclick="check()">정답확인</button>
+
+    <script>
+
+        const solutionArr = [];
+
+        for (let i = 2; i <= 9; i++) 
+        {
+            for (let j = 1; j <= 9; j++) {
+                const solution = { sol: `${i} x ${j} = `, ans: i * j };
+                solutionArr.push(solution)
+            }
+        }
+        const answerArr = [];
+        function printsolution() 
+        {
+            result.innerHTML = ``;
+            answerArr.length = 0;
+            for (let i = 1; i <= 10; i++) {
+                let random = Math.floor(Math.random() * solutionArr.length);
+                result.innerHTML += `<li>${solutionArr[random].sol} <input type="text" id="ip${i}" class="ipt${i}"> </li>`
+                answerArr.push(solutionArr[random].ans)
+                console.log(answerArr)
+            }
+        }
+        function check() 
+        {
+            for (let i = 1; i <= 10; i++) 
+            {
+                let ip = document.getElementById(`ip${i}`).value;
+                let ipt = document.getElementById(`ip${i}`)
+                if (parseInt(ip) == parseInt(answerArr[i - 1])) {
+                    ipt.style.setProperty("background-color", "green");
+                    console.log('정답')
+                }
+                else 
+                {
+                    ipt.style.setProperty("background-color", "red");
+                    console.log('오답')
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+﻿

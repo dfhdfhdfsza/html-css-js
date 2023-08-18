@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 for문</title>
+    <style>
+        td
+        {
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>
+        구구단 2~9단
+    </h1>
+    <button type="button" onclick="totalgugu()">구구단 출력</button>
+    <button type="button" onclick="gugu(3)">3단 출력</button>
+    <button type="button" onclick="gugu(5)">5단 출력</button>
+    <button type="button" onclick="gugu(7)">7단 출력</button>
+    <button type="button" onclick="gugu(9)">9단 출력</button>
+    <div class="dt"></div>
+
+    </h3>
+    <script>
+        function totalgugu()
+        {
+            let str=`<table>`;
+            
+            for(let i=1;i<=9;i++)
+            {
+                str+=`<tr>`;
+                for(let j=2;j<=9;j++)
+                {
+                    str+=`<td>${j} x ${i} = ${i*j}</td>`;
+                }
+                
+                str+=`</tr>`;
+            }
+            str+=`</table>`;
+            dt.innerHTML=`${str}`;
+        }
+        function gugu(i)
+        {
+            h3.innerHTML=``;
+            for(let j=1;j<=9;j++)
+                {
+                    h3.innerHTML+=`${i} x ${j} = ${i*j}<br>`;
+                }
+        }
+    </script>
+</body>
+</html>

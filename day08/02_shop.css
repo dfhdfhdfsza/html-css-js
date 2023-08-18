@@ -1,0 +1,122 @@
+@font-face
+{
+    font-family:jua;
+    src:url(/font/jua/Jua-Regular.ttf);
+}
+
+body
+{
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+.navbar
+{
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 10px 10px;
+}
+.navbar a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+
+}
+.navbar ul
+{
+    display: flex;
+    justify-content: space-between;
+}
+.navbar ul li
+{
+    margin-left: 20px;
+}
+
+.navbar ul li a
+{
+    font-size: 17px;
+    font-weight: 700;
+}
+.main-img
+{
+    width: 100%;
+    height: 500px;
+    background: url(/image/2023020980213_0.jpg);
+    background-size: cover;
+}
+h1
+{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    color: rgb(172, 171, 171);
+    font-family:jua;
+    
+}
+.products ul
+{
+    list-style: none;
+}
+.products ul li{
+    margin-top: 10px;
+}
+.products a
+{
+    
+    width: 30%;
+    height: 500px;
+    float: left;
+    margin-left: 3%;
+    margin-top: 5%;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-family: jua;
+}
+.products a img
+{
+    width: 350px;
+    height: 350px;
+}
+.footer
+{
+    margin-top: 10%;
+    width: 100%;
+    height: 10%;
+    /* padding: 50px; */
+   
+}
+.footer ul
+{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+
+}
+.footer ul li
+{
+    float: left;
+    margin-right: 30px;
+    font-size: 30px;
+    
+}
+.products>a
+{
+    position: relative;
+}
+.products .sale
+{
+    position: absolute;
+    color: red;
+    font-size: 30px;
+    top:200px;
+    left: 180px;
+    display: none;
+}
+.products>a>img:hover ~.sale
+{
+    display: block;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map 예제</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성
+        과목,점수
+        추가버튼=>map추가
+        출력버튼=>map을 출력 ul=>li로 출력
+        결과버튼=>합계,평균,평가(80이상이면 통과,아니면 탈락)=>h3
+     -->
+     과목: <input type="text" id="sub">
+     점수: <input type="text" id="scr"><br><br>
+     <button onclick="addMap()">추가</button>-*
+     <button onclick="printMap()">출력</button>
+     <button onclick="printResult()">결과</button>
+     <ul id="mapp"></ul>
+     <h3 id="result"></h3>
+
+     <script>
+        const myMap=new Map();
+        function addMap()
+        {
+            myMap.set(document.getElementById('sub').value,document.getElementById('scr').value);
+        }
+        function printMap()
+        {
+            mapp.innerHTML=``;
+            myMap.forEach(function(e,i){
+                mapp.innerHTML+=`<li>과목:${i} 점수:${e}</li>`
+        })
+        }
+        function printResult()
+        {
+            let sum=0;
+            let pass="";
+            myMap.forEach(function(e,i){
+                sum+=Number(e);
+        })
+            result.innerHTML=`합계 : ${sum}<br>`
+            result.innerHTML+=`평균 : ${sum/myMap.size}<br>`
+            pass=sum/myMap.size>=80? '통과':'실패';
+            result.innerHTML+=` 합계 : ${pass}<br>`;
+        }
+     </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+@import url(reset.css);
+.container
+{
+    /* %:부모가 기준 */
+    width: 100%;
+    /* vh:모니터가 기준 */
+    height: 100vh;
+    /* 이미지를 어둡게 */
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(/image/wallpaperbetter.com_1920x1080.jpg);
+    background-size: cover;
+}
+.container .header
+{
+    width: 90%;
+    height: 80px;
+    margin: 0px auto;
+    padding-top: 20px;
+    /* 자식 박스들을 배치하기 쉽게하기위해서 flex를 준다. */
+    display: flex;
+    /* contents 정렬 방식 
+        space-between:양쪽으로 정렬
+    */
+    justify-content: space-between;
+}
+.container .header h1 a
+{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+}
+.container .header .nav ul{
+    display: flex;
+    justify-content: space-between;
+}
+.container .header .nav ul li
+{
+    margin: 0 10px;
+}
+.container .header .nav ul li a
+{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+}
+.container .header .nav ul li a:hover
+{
+    color: burlywood;
+}
+.container .main
+{
+    /* 전체 브라우저의 정 가운데 정렬 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: white;
+}
+.container .main h2
+{
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+.container .main button
+{
+    background-color: transparent;
+    border: 2px solid green;
+    padding: 20px 20px;
+    font-weight: 700;
+    font-size: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.container .main button:hover
+{
+    background-color: green;
+    color: black;
+}

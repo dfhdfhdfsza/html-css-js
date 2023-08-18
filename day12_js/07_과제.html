@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <buttton type="button" onclick="play(1)">
+    <img src="/image/math_img_1 (1).jpg" alt="">
+    </buttton>
+    <buttton type="button" onclick="play(2)">
+        <img src="/image/math_img_2.jpg" alt="">
+    </buttton>
+    <buttton type="button" onclick="play(3)">
+        <img src="/image/math_img_3.jpg" alt="">
+    </buttton>
+    <h3 id="result"></h3>
+    <script>
+        let win=0;
+        let lose=0;
+        let draw=0;
+        let round=0;
+        //가위 1 바위 2 보 3
+        function play(player)
+        {
+            let com=Math.floor(Math.random()*3)+1;
+            let str='';
+            round++;
+            if(player==1)
+            {
+                if(com==1)
+                {
+                    draw++;
+                    str='비겼습니다.'
+                }
+                else if(com==2)
+                {
+                    lose++;
+                    str='졌습니다.'
+                }
+                else if(com==3)
+                {
+                    win++;
+                    str='이겼습니다.'
+                }
+            }
+            else if(player==2)
+            {
+                if(com==1)
+                {
+                    win++;
+                    str='이겼습니다.'
+                }
+                else if(com==2)
+                {
+                    draw++;
+                    str='비겼습니다.'
+                }
+                else if(com==3)
+                {
+                    lose++;
+                    str='졌습니다.'
+                }
+            }
+            else if(player==3)
+            {
+                if(com==1)
+                {
+                    lose++;
+                    str='졌습니다.'
+                }
+                else if(com==2)
+                {
+                    win++;
+                    str='이겼습니다.'
+                }
+                else if(com==3)
+                {
+                    draw++;
+                    str='비겼습니다.'
+                }
+            }
+            result.innerHTML=`당신:${tostring(player)}<br>`;
+            result.innerHTML+=`컴퓨터:${tostring(com)}<br>`;
+            result.innerHTML+=`${str}<br>`;
+            result.innerHTML+=`현재 전적<br>`
+            result.innerHTML+=`승:${win}<br>`
+            result.innerHTML+=`무:${draw}<br>`
+            result.innerHTML+=`패:${lose}<br>`
+            result.innerHTML+=`승률:${(win/round)*100}%<br>`
+
+
+        }
+        function tostring(v)
+        {
+            if(v==1)
+                return '가위';
+            else if(v==2)
+                return '바위';
+            else if(v==3)
+                return '보';
+        }
+    </script>
+</body>
+</html>

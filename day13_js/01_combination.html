@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        데이터를 다룰 때 배열과 객체를 혼용하여 다루는 경우가 많음
+    </h1>
+    <ul>
+        <li>
+            배열 안에 객체를 저장 그 객체 안에 다시 배열이 저장되어 있는형태
+        </li>
+        <li>
+            이러한 조합의 형태에서는 for of,for in을 적절히 사용할 수 있어야 함.
+        </li>
+        <li>
+            for of:배열을 탐색(Array)
+            for(저장변수 of 배열)
+        </li>
+        <li>
+            for in:객체를 탐색(Object)
+            for(키를 저장할 변수 in 객체)
+            {
+                객체명[키네임];=>value값 추출
+            }
+        </li>
+    </ul>
+    <script>
+        const memberObject={
+            name:'kim',
+            age:20,
+            married:false,
+            favors:['coffee','game','movie']
+        };
+        console.log(memberObject);
+
+        const people=[];
+        //people에 memberObject를 5명 추가
+        for(let i=0;i<5;i++)//깊은복사
+        {
+            let copy=Object.assign({},memberObject);
+            people.push(copy);
+        }
+        console.log(people);
+        people[1].name='park';
+        people[2].name='hong';
+        people[2].age=21;
+        people[3].name='lee';
+        people[3].age30;
+        people[3].married=true;
+        people[4].name='choi';
+        console.log(people);
+        console.log('------------------------');
+        for(let member of people)
+        {
+            console.log(member); //각각의 object{}로 분리
+            //object 탐색 => for in
+            for(let keyName in member)
+            {
+                if(keyName=='favors')
+                {
+                    for(let favor of member[keyName])
+                    {
+                        console.log(favor);
+                    }
+                }
+                else
+                {
+                    console.log(keyName);
+                console.log(member[keyName])
+                }
+            }
+        }
+        console.log('------------------------');
+        //Object를 생성해서 배열에 5개 복사하여 등록
+        //탐색
+        const singer={
+            name:'아이유',
+            age:30,
+            addr:'서울특별시 성동구 송정동',
+            playlist:{
+                first:'좋은날',
+                second:'너랑나',
+                third:'레옹'
+                }
+        }
+        const singers=[];
+        for(let i=0;i<5;i++)
+        {
+            let copy=Object.assign({},singer);
+            singers.push(copy);
+        }
+        singers[1].name='성시경';
+        singers[2].name='김범수';
+        singers[3].name='10cm';
+        singers[4].name='빈지노';
+        for(a of singers)
+        {
+            console.log(a);
+            for(o in a.playlist)
+            {
+                console.log(a.playlist[o]);
+            }
+        }
+
+
+    </script>
+</body>
+</html>

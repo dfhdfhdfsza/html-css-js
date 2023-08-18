@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        .box1
+        {
+            width: 200px;
+            height:50px ;
+            text-align: center;
+            font-size: 20;
+            margin:30px auto;
+            border: 5px solid black;
+           
+        }
+        ul>li
+        {
+            display: inline;
+            margin-right: 30px;
+           
+            
+            
+        }
+        ul
+        {
+            text-align: center;
+        }
+        a
+        {
+            text-decoration: none;
+        }
+        img
+        {
+            
+            margin: 30px auto;
+            width:"300px";
+            height:"300px";
+        }
+    </style>
+</head>
+<body>
+    <div class="box1">travel</div>
+    <div class="box2">
+        <ul type="none">
+            <li><a onclick="printimg('home')">Home</a></li>
+            <li><a onclick="printimg('seoul')">seoul</a></li>
+            <li><a onclick="printimg('paris')">paris</a></li>
+            <li><a onclick="printimg('tokyo')">tokyo</a></li>
+        </ul>
+        <img src="" alt="" id="img">
+    </div>
+    <script>
+        function printimg(country)
+        {
+            console.log(country);
+            switch(country)
+            {
+                case 'home':img.src='/image/다운로드 (1).png';
+                break;
+                case 'seoul':img.src='/image/img_spot_view19.jpg';
+                break;
+                case 'paris':img.src='/image/efab21ee-78ff-46d5-98aa-b7fd3bafad9e.webp';
+                break;
+                case 'tokyo':img.src='/image/main.jpg';
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

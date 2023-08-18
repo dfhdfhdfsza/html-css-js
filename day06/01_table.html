@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table 속성</title>
+    <!-- 표에 css 넣기 -->
+    <style>
+        table
+        {
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+        }
+        th,td{
+            border: 1px dotted rgb(9, 81, 249);
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            border-left: none;
+            border-right: none;
+        }
+        thead
+        {
+            background-color: aqua;
+            border-top: 2px solid rgb(243, 36, 36);
+        }
+        tfoot
+        {
+            border-bottom: 2px solid rgb(243, 36, 36);
+        }
+        tbody>tr:nth-child(2n)
+        {
+            background-color: aquamarine;
+        }
+        tbody>tr:hover
+        {
+            background-color: darkblue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>국어</th>
+                <th>영어</th>            
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>97</td>
+                <td>77</td>
+            </tr>
+            <tr>
+                <td>이순신</td>
+                <td>53</td>
+                <td>19</td>
+            </tr>
+            <tr>
+                <td>유호재</td>
+                <td>89</td>
+                <td>100</td>
+            </tr>
+            tr>
+                <td>유호재</td>
+                <td>89</td>
+                <td>100</td>
+            </tr>
+            tr>
+                <td>유호재</td>
+                <td>89</td>
+                <td>100</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>합계</td>
+                <td>100</td>
+                <td>100</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

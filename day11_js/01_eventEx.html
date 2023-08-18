@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이구하기</title>
+</head>
+<body>
+    <fieldset>
+        이름: <input type="text" id="name"><br>
+        주민번호: <input type="text" id="rNum"><br>
+        <button type="button" onclick="printUserInfo()">확인</button>
+    </fieldset>
+
+    <h3 id="h3">
+        <!-- 이름,생년월일,성별,나이 -->
+    </h3>
+
+    <script>
+        let now=new Date();
+        
+        function printUserInfo()
+        {
+            let name=document.getElementById('name').value;
+            let rNum=document.getElementById('rNum').value;
+            let gender;
+            let year=rNum.charAt(rNum.indexOf('-')+1);
+            if(year=='1'||year=='3')
+                gender='남'
+            else if(year=='2'||year=='4')
+                gender='여';
+            let birth;
+            if(year<3)
+            {
+                birth='19';
+                birth+=rNum.substring(0,2);
+            }
+            else
+            {
+                birth='20';
+                birth+=rNum.substring(0,2);
+            }
+            birth=parseInt(birth);
+            let age=2023-birth;
+
+            h3.innerHTML=`이름:${name} `;
+            h3.innerHTML+=`생년월일:${birth}년 ${rNum.substring(2,4)}월 ${rNum.substring(4,6)}일 `;
+            h3.innerHTML+=`성별:${gender} `;
+            h3.innerHTML+=`나이:${age}`;
+        }
+        let today= new Date();
+        console.log(today)
+        console.log(today.getFullYear()); //년도
+        console.log(today.getMonth()+1);// 0~11월 +1
+        console.log(today.getDate());   //일 반환 1~31
+        console.log(today.getDay()); //요일 0(일)~6(토)
+
+        //getHour,minutes,seconds : 시분초 추출
+        let today2=today.toLocaleDateString();  //년월일
+        console.log(today2);
+        let time=today.toLocaleTimeString();    //시분초
+        console.log(time);
+        console.log(today.toLocaleString()); //년월일 시분초
+    </script>
+</body>
+</html>

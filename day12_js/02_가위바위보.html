@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>가위 바위 보 게임 10번 승률 출력</h3>
+    <button type="button" onclick="rcp()">승률 출력</button>
+    <h3>
+        10게임의 승률은 <span id="result"></span>% 입니다.
+    </h3>
+    <script>
+        //가위 바위 보는 com=>랜덤, player=> 랜덤
+        //승률계산(승리/(10-무))*100
+        function rcp()
+        {
+            let round=0;
+            //0은 가위 1은 바위 2는 보
+            let win=0;
+            while(round!=10)
+            {
+                let me=Math.floor(Math.random()*3);
+                let com=Math.floor(Math.random()*3);
+                if(me==0&&com==2)
+                {
+                    win++;
+                }
+                else if(me==1&&com==0)
+                {
+                    win++;
+                }
+                else if(me==2&&com==1)
+                {
+                    win++;
+                }
+                round++;
+            }
+            let winrate=(win/round)*100;
+            result.innerHTML=`${winrate}`;
+        }
+    </script>
+</body>
+</html>

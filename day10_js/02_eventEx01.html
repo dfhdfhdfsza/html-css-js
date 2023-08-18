@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset>
+        <legend>이름,국어,영어,수학 점수를 입력해주세요.</legend>
+        name: <input type="text" id="name"><br>
+        kor: <input type="number" id="kor"><br>
+        eng: <input type="number" id="eng"><br>
+        mat: <input type="number" id="mat"><br>
+        <button type="button" onclick="calc()">전송</button>
+    </fieldset>
+    <ol id="ol">
+
+    </ol>
+    <script>
+        //이름,국어,영어,수학 점수를 입력받아
+        //합계와 평균을 화면에 출력
+        function calc()
+        {
+            let name=document.getElementById('name').value;
+            let kor=document.getElementById('kor').value;
+            let eng=document.getElementById('eng').value;
+            let mat=document.getElementById('mat').value;
+
+            
+            let total=parseInt(kor)+parseInt(mat)+parseInt(eng);
+            let avg=total/3;
+            ol.innerHTML=`<li>name:${name}(${typeof name})</li>`
+            ol.innerHTML+=`<li>pw:${kor} (${typeof kor})</li>`
+            ol.innerHTML+=`<li>birth:${eng}(${typeof eng})</li>`
+            ol.innerHTML+=`<li>pin:${mat} (${typeof mat})</li>`
+            ol.innerHTML+=`<li>total:${total} (${typeof total})</li>`
+            ol.innerHTML+=`<li>avg:${avg} (${typeof avg})</li>`
+        }
+    </script>
+</body>
+</html>

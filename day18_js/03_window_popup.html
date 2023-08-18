@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창</title>
+</head>
+<body>
+    <h1>
+        Window 메서드 종류
+    </h1>
+    <ul>
+        <li>
+            열때
+            window.open('url','window name','option(size,scroll....)');
+        </li>
+        <li>
+            닫을때
+            window.close()
+        </li>
+        <li>
+            alert() : 경고창 띄움. 
+            prompt() : input 받을 수 있는 창
+            confirm(): 확인/취소 창
+        </li>
+    </ul>
+    <button type="button" onclick="openWindow()">열기</button>
+    <button type="button" onclick="closeWindow()">닫기</button>
+    <button type="button" onclick="alertl()">alert</button>
+    <button type="button" onclick="confirm1()">confirm</button>
+    <button type="button" onclick="prompt1()">prompt</button>
+    <h3 id="msg"></h3>
+    <script>
+        let myWindow;
+        function openWindow()
+        {
+            myWindow=window.open("","mywindow","width=300,height=300");
+        }
+        function closeWindow()
+        {
+            if(myWindow)
+                myWindow.close();
+        }
+        function alertl()
+        {
+            alert('alert연습');
+        }
+        function confirm1()
+        {
+            let answer=confirm('confirm연습');
+            
+            if(answer)
+                msg.innerHTML='확인을 선택함.'
+            else
+                msg.innerHTML='취소를 선택함.'
+
+        }
+        function prompt1()
+        {
+            let promptstr=prompt('prompt연습')
+            msg.innerHTML=`${promptstr}`
+        }
+
+    </script>
+</body>
+</html>
